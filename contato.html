@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento & Contato | Agility Soluções em Serviços</title>
+    <meta name="description" content="Solicite um orçamento rápido para serviços de manobrista, segurança e conservação em toda Petrópolis e região. Atendimento ágil via WhatsApp.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: {
+                                deep: '#060B14',
+                                DEFAULT: '#0A1222',
+                                light: '#111D35',
+                                card: '#0D172B'
+                            },
+                            blue: {
+                                DEFAULT: '#2563EB',
+                                light: '#38BDF8',
+                                glow: '#1D4ED8'
+                            },
+                            silver: '#CBD5E1',
+                            white: '#FFFFFF',
+                            accent: '#38BDF8'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #060B14;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #FFFFFF, #93C5FD, #38BDF8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #2563EB, #1D4ED8, #0284C7);
+        }
+
+        .btn-outline-custom {
+            position: relative;
+            background-color: transparent;
+            border: 1px solid #38BDF8;
+            color: #38BDF8;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-outline-custom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: #2563EB;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-outline-custom:hover {
+            color: #FFFFFF;
+            border-color: #2563EB;
+        }
+
+        .btn-outline-custom:hover::after {
+            height: 100%;
+        }
+
+        .contact-card {
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            background: linear-gradient(to bottom, #0D172B 0%, #060B14 100%);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.25);
+        }
+
+        .backdrop-blur-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(6, 11, 20, 0.85);
+        }
+
+        /* Checkbox styling */
+        .service-checkbox:checked + label {
+            border-color: #38BDF8;
+            background-color: rgba(37, 99, 235, 0.15);
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-blue selection:text-white">
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-nav border-b border-brand-blue/15 py-4">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo-icon.png" alt="Agility" class="h-12 w-auto drop-shadow-[0_0_12px_rgba(56,189,248,0.3)]">
+                <div class="flex flex-col leading-tight">
+                    <span class="text-white font-bold tracking-[0.2em] text-lg uppercase">Agility</span>
+                    <span class="text-brand-accent text-[10px] tracking-[0.18em] uppercase font-medium">Soluções em Serviços</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Início</a>
+                <a href="sobre.html" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Sobre</a>
+                <a href="servicos.html" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Serviços</a>
+                <a href="contato.html" class="text-sm font-semibold text-brand-accent border-b-2 border-brand-accent pb-1">Contato</a>
+                <a href="https://wa.me/5524988357739" target="_blank" class="btn-outline-custom px-6 py-2 rounded uppercase text-xs font-semibold tracking-widest">WhatsApp Rápido</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-navy-deep/95 border-b border-brand-blue/20 backdrop-blur-md">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.html" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors py-2 border-b border-gray-800">Início</a>
+                <a href="sobre.html" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors py-2 border-b border-gray-800">Sobre</a>
+                <a href="servicos.html" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors py-2 border-b border-gray-800">Serviços</a>
+                <a href="contato.html" class="text-sm font-semibold text-brand-accent py-2 border-b border-gray-800">Contato</a>
+                <a href="https://wa.me/5524988357739" target="_blank" class="text-brand-accent font-semibold py-2">Fale Conosco no WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header Banner -->
+    <section class="pt-36 pb-12 md:pt-44 md:pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/15 via-brand-navy-deep to-brand-navy-deep z-0"></div>
+        <div class="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-3xl">
+            <span class="text-brand-accent uppercase tracking-[0.25em] text-xs font-semibold mb-3 inline-block">Atendimento Direto & Personalizado</span>
+            <h1 class="font-serif text-3xl md:text-5xl font-bold mb-5 leading-tight">
+                Solicite uma Proposta para <br><span class="text-gradient italic">o Seu Evento ou Empresa</span>
+            </h1>
+            <p class="text-slate-300 font-light text-base md:text-lg leading-relaxed">
+                Preencha as informações básicas abaixo para receber um orçamento transparente, sob medida e sem burocracia. Respondemos prontamente pelo WhatsApp.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content: Form + Contact Info -->
+    <section class="py-12 md:py-20 bg-brand-navy-deep relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left: Interactive Form (7 cols) -->
+                <div class="lg:col-span-7 bg-brand-navy-card p-8 md:p-10 rounded-2xl border border-brand-blue/20 shadow-xl relative">
+                    <div class="mb-8">
+                        <span class="text-brand-accent text-xs font-semibold uppercase tracking-wider">Simulador de Orçamento</span>
+                        <h2 class="text-2xl font-serif font-bold text-white mt-1">Detalhes do que Você Precisa</h2>
+                        <p class="text-slate-400 text-sm mt-1">Selecione os serviços e informe a data prevista para montarmos a proposta ideal.</p>
+                    </div>
+
+                    <form id="quote-form" class="space-y-6">
+                        
+                        <!-- Nome & Telefone -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">Seu Nome / Empresa</label>
+                                <input type="text" id="form-name" required placeholder="Ex: Rodrigo Silva / Casa de Festas" class="w-full bg-brand-navy border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">Seu WhatsApp / Telefone</label>
+                                <input type="tel" id="form-phone" required placeholder="Ex: (24) 99999-9999" class="w-full bg-brand-navy border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <!-- Seleção de Serviços (Chips / Checkboxes) -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">Serviços Desejados</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <input type="checkbox" id="srv-valet" value="Manobrista (Valet)" class="hidden service-checkbox">
+                                    <label for="srv-valet" class="cursor-pointer flex items-center gap-3 p-3.5 rounded-lg border border-slate-700 bg-brand-navy hover:border-slate-500 transition-all text-sm text-slate-300 select-none">
+                                        <svg class="w-5 h-5 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                                        </svg>
+                                        <span class="font-medium">Manobrista (Valet)</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="srv-seg" value="Segurança para Eventos" class="hidden service-checkbox">
+                                    <label for="srv-seg" class="cursor-pointer flex items-center gap-3 p-3.5 rounded-lg border border-slate-700 bg-brand-navy hover:border-slate-500 transition-all text-sm text-slate-300 select-none">
+                                        <svg class="w-5 h-5 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                        </svg>
+                                        <span class="font-medium">Segurança para Eventos</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="srv-limp" value="Conservação & Limpeza" class="hidden service-checkbox">
+                                    <label for="srv-limp" class="cursor-pointer flex items-center gap-3 p-3.5 rounded-lg border border-slate-700 bg-brand-navy hover:border-slate-500 transition-all text-sm text-slate-300 select-none">
+                                        <svg class="w-5 h-5 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                        </svg>
+                                        <span class="font-medium">Conservação & Limpeza</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="srv-pacote" value="Pacote Completo 3 em 1" class="hidden service-checkbox">
+                                    <label for="srv-pacote" class="cursor-pointer flex items-center gap-3 p-3.5 rounded-lg border border-slate-700 bg-brand-navy hover:border-slate-500 transition-all text-sm text-slate-300 select-none">
+                                        <svg class="w-5 h-5 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                        </svg>
+                                        <span class="font-medium">Pacote Integrado 3 em 1</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data & Local -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">Data Prevista do Evento</label>
+                                <input type="date" id="form-date" class="w-full bg-brand-navy border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">Local / Bairro / Cidade</label>
+                                <input type="text" id="form-location" required placeholder="Ex: Petrópolis (qualquer bairro/distrito) ou região" class="w-full bg-brand-navy border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <!-- Porte Estimado -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">Estimativa de Porte / Convidados</label>
+                            <select id="form-size" class="w-full bg-brand-navy border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors text-sm">
+                                <option value="Não especificado">Selecione uma faixa aproximada...</option>
+                                <option value="Evento pequeno (Até 50 pessoas / 20 veículos)">Evento pequeno (Até 50 pessoas / 20 veículos)</option>
+                                <option value="Evento médio (50 a 150 pessoas / 20 a 60 veículos)">Evento médio (50 a 150 pessoas / 20 a 60 veículos)</option>
+                                <option value="Evento de grande porte (150 a 300+ pessoas)">Evento de grande porte (150 a 300+ pessoas)</option>
+                                <option value="Contrato empresarial / Comercial recorrente">Contrato empresarial / Comercial recorrente</option>
+                                <option value="Outro porte (descrevo nas observações)">Outro porte (descrevo nas observações)</option>
+                            </select>
+                        </div>
+
+                        <!-- Observações -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-300 font-semibold mb-2">Observações / Detalhes Adicionais</label>
+                            <textarea id="form-notes" rows="3" placeholder="Conte mais sobre o horário de início/fim, particularidades do local ou necessidades especiais..." class="w-full bg-brand-navy border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent transition-colors text-sm"></textarea>
+                        </div>
+
+                        <!-- Botão de Envio WhatsApp -->
+                        <button type="submit" class="w-full bg-gradient-primary hover:opacity-95 text-white font-bold py-4 px-6 rounded-lg uppercase tracking-wider text-sm flex items-center justify-center gap-3 shadow-[0_0_25px_rgba(37,99,235,0.4)] transition-all cursor-pointer">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                            </svg>
+                            <span>Enviar Proposta via WhatsApp</span>
+                        </button>
+                        <p class="text-xs text-slate-400 text-center">
+                            Ao clicar, seus dados serão organizados automaticamente em uma mensagem do WhatsApp dirigida ao nosso time de coordenação.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Right: Direct Contacts & Info (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Telefones Card -->
+                    <div class="contact-card p-6 md:p-8 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-accent">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-white">Telefones Diretos</h3>
+                                <p class="text-xs text-slate-400">Ligação ou mensagem no WhatsApp</p>
+                            </div>
+                        </div>
+
+                        <!-- Telefones unificados sem separação de linhas/rótulos -->
+                        <div class="bg-brand-navy p-5 rounded-xl border border-slate-800 space-y-4">
+                            <!-- Telefone 1 (98835-7739) -->
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
+                                <span class="text-white font-semibold text-base">+55 (24) 98835-7739</span>
+                                <div class="flex items-center gap-2">
+                                    <a href="tel:+5524988357739" title="Ligar" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                    </a>
+                                    <a href="https://wa.me/5524988357739" target="_blank" title="WhatsApp" class="p-2.5 rounded-lg bg-brand-blue/20 hover:bg-brand-blue/40 text-brand-accent transition-colors">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Telefone 2 (99226-5269) -->
+                            <div class="flex items-center justify-between">
+                                <span class="text-white font-semibold text-base">+55 (24) 99226-5269</span>
+                                <div class="flex items-center gap-2">
+                                    <a href="tel:+5524992265269" title="Ligar" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                    </a>
+                                    <a href="https://wa.me/5524992265269" target="_blank" title="WhatsApp" class="p-2.5 rounded-lg bg-brand-blue/20 hover:bg-brand-blue/40 text-brand-accent transition-colors">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E-mail Card com botão copiar -->
+                    <div class="contact-card p-6 md:p-8 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-accent">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-white">E-mail Comercial</h3>
+                                <p class="text-xs text-slate-400">Envio de editais, briefings e contratos</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-navy p-4 rounded-xl border border-slate-800">
+                            <span class="text-sm font-mono text-slate-200 block break-all mb-3 select-all" id="email-text">agilitysolucoeseservicos@gmail.com</span>
+                            <div class="flex items-center gap-3">
+                                <button type="button" id="copy-email-btn" class="text-xs bg-slate-800 hover:bg-slate-700 text-brand-accent px-4 py-2 rounded-md font-semibold transition-colors flex items-center gap-2">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    <span id="copy-btn-label">Copiar E-mail</span>
+                                </button>
+                                <a href="mailto:agilitysolucoeseservicos@gmail.com" class="text-xs text-slate-400 hover:text-white transition-colors underline">Abrir no seu leitor</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Base e Área de Atuação -->
+                    <div class="contact-card p-6 md:p-8 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-accent">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-white">Localização & Cobertura</h3>
+                                <p class="text-xs text-slate-400">Atuação local com resposta rápida</p>
+                            </div>
+                        </div>
+                        <ul class="text-sm text-slate-300 space-y-2 leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-accent mt-1">✓</span>
+                                <span><strong>Sede:</strong> Petrópolis / RJ</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-accent mt-1">✓</span>
+                                <span><strong>Área Atendida:</strong> Toda a cidade de Petrópolis (todos os distritos) e municípios vizinhos da Região Serrana.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-accent mt-1">✓</span>
+                                <span><strong>Prontidão:</strong> Equipes coordenadas e escaladas sob demanda para dias de semana, finais de semana e feriados.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Rápido sobre Contratação -->
+    <section class="py-16 md:py-24 bg-brand-navy border-t border-brand-blue/15">
+        <div class="container mx-auto px-6 md:px-12 max-w-4xl">
+            <div class="text-center mb-12">
+                <span class="text-brand-accent text-xs font-semibold uppercase tracking-wider">Tire suas Dúvidas</span>
+                <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mt-2">Dúvidas Frequentes sobre a Contratação</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-brand-navy-card p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-semibold text-white text-base mb-2">Com quanta antecedência devo solicitar o orçamento?</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Recomendamos pelo menos de 7 a 15 dias de antecedência para garantir a melhor escala e reserva da equipe para a sua data. No entanto, possuímos prontidão para atender demandas de urgência conforme disponibilidade.</p>
+                </div>
+
+                <div class="bg-brand-navy-card p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-semibold text-white text-base mb-2">O serviço de manobrista (valet) conta com seguro?</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Sim. Todas as operações de manobrista são estruturadas com protocolo de vistoria prévia e cobertura securitária, garantindo tranquilidade tanto para os anfitriões quanto para os proprietários dos veículos.</p>
+                </div>
+
+                <div class="bg-brand-navy-card p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-semibold text-white text-base mb-2">Como funciona a contratação do pacote integrado (3 em 1)?</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Ao contratar manobrista, segurança e limpeza juntos, você conta com um único líder operacional responsável no local e condições comerciais vantajosas, eliminando o estresse de coordenar fornecedores diferentes.</p>
+                </div>
+
+                <div class="bg-brand-navy-card p-6 rounded-xl border border-slate-800">
+                    <h4 class="font-semibold text-white text-base mb-2">A Agility atende fora do município de Petrópolis?</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Sim! Atendemos regularmente toda a Região Serrana (Teresópolis, Nova Friburgo, Areal) e projetos especiais na capital do Rio de Janeiro mediante planejamento de deslocamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy-deep border-t border-brand-blue/15 pt-16 pb-10">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <div class="lg:col-span-1">
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="logo.png" alt="Agility — Soluções em Serviços" class="h-12 w-auto">
+                    </a>
+                    <p class="text-slate-400 font-light text-sm mb-6 leading-relaxed">
+                        Agilidade, seriedade e discrição em manobrista, segurança e conservação para Petrópolis e região serrana.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <h4 class="text-white font-serif font-semibold mb-6">Navegação</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-slate-400 hover:text-brand-accent text-sm transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="text-slate-400 hover:text-brand-accent text-sm transition-colors">Nossa Origem</a></li>
+                        <li><a href="servicos.html" class="text-slate-400 hover:text-brand-accent text-sm transition-colors">Nossos Serviços</a></li>
+                        <li><a href="contato.html" class="text-brand-accent text-sm transition-colors font-semibold">Orçamento & Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <h4 class="text-white font-serif font-semibold mb-6">Atendimento Direto</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <span class="text-brand-accent font-medium">Local:</span> Petrópolis, RJ e região
+                        </li>
+                        <li>
+                            <a href="https://wa.me/5524988357739" target="_blank" class="hover:text-brand-accent transition-colors block">+55 (24) 98835-7739</a>
+                            <a href="https://wa.me/5524992265269" target="_blank" class="hover:text-brand-accent transition-colors block">+55 (24) 99226-5269</a>
+                        </li>
+                        <li>
+                            <a href="mailto:agilitysolucoeseservicos@gmail.com" class="hover:text-brand-accent transition-colors break-all">agilitysolucoeseservicos@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <h4 class="text-white font-serif font-semibold mb-6">WhatsApp Rápido</h4>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Fale com um dos nossos coordenadores diretamente pelo WhatsApp.</p>
+                    <a href="https://wa.me/5524988357739" target="_blank" class="inline-flex items-center gap-2 bg-gradient-primary text-white px-5 py-2.5 rounded text-xs font-bold uppercase tracking-wider hover:opacity-95 shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all">
+                        Chamar no WhatsApp
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>
+                    &copy; <span id="year"></span> Agility Soluções em Serviços. Todos os direitos reservados.
+                </p>
+                <div class="mt-4 md:mt-0 flex gap-6">
+                    <button id="open-privacy" class="hover:text-brand-accent transition-colors cursor-pointer">Política de Privacidade</button>
+                    <a href="index.html" class="hover:text-brand-accent transition-colors">Voltar para Início</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Política de Privacidade -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4">
+        <div class="bg-brand-navy border border-brand-blue/30 rounded-lg max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 text-slate-300 text-sm shadow-2xl relative">
+            <button id="close-privacy" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="font-serif text-2xl font-bold text-white mb-4">Política de Privacidade</h3>
+            <p class="text-xs text-brand-accent mb-4 uppercase tracking-wider font-semibold">Agility Soluções em Serviços</p>
+            <div class="space-y-4 text-xs md:text-sm leading-relaxed text-slate-400">
+                <p>A <strong class="text-white">Agility Soluções em Serviços</strong> valoriza a transparência, o sigilo e a privacidade dos dados de todos os seus clientes e parceiros, em estrita conformidade com a LGPD (Lei Geral de Proteção de Dados - Lei nº 13.709/2018).</p>
+                <h4 class="text-white font-semibold">1. Coleta de Informações</h4>
+                <p>Coletamos apenas as informações necessárias para a elaboração de propostas comerciais e prestação de serviços, como nome, telefone de contato e detalhes do evento.</p>
+                <h4 class="text-white font-semibold">2. Uso e Sigilo</h4>
+                <p>Seus dados são utilizados exclusivamente para comunicação direta com a Agility e nunca serão comercializados ou cedidos a terceiros sem prévia autorização.</p>
+                <h4 class="text-white font-semibold">3. Canal de Contato</h4>
+                <p>Para esclarecimentos sobre seus dados, entre em contato via <span class="text-brand-accent">agilitysolucoeseservicos@gmail.com</span>.</p>
+            </div>
+            <div class="mt-6 text-right">
+                <button id="close-privacy-btn" class="bg-brand-blue/20 hover:bg-brand-blue/40 text-brand-accent px-5 py-2 rounded text-xs uppercase font-semibold tracking-wider transition-colors">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Menu Mobile
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copiar E-mail
+        const copyBtn = document.getElementById('copy-email-btn');
+        const copyLabel = document.getElementById('copy-btn-label');
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText('agilitysolucoeseservicos@gmail.com').then(() => {
+                copyLabel.textContent = 'E-mail Copiado!';
+                setTimeout(() => {
+                    copyLabel.textContent = 'Copiar E-mail';
+                }, 2500);
+            });
+        });
+
+        // Formulário Inteligente de Proposta
+        const form = document.getElementById('quote-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('form-name').value.trim();
+            const phone = document.getElementById('form-phone').value.trim();
+            const location = document.getElementById('form-location').value.trim();
+            const date = document.getElementById('form-date').value;
+            const size = document.getElementById('form-size').value;
+            const notes = document.getElementById('form-notes').value.trim();
+
+            // Coletar serviços selecionados
+            const services = [];
+            if (document.getElementById('srv-valet').checked) services.push('Manobrista (Valet)');
+            if (document.getElementById('srv-seg').checked) services.push('Segurança para Eventos');
+            if (document.getElementById('srv-limp').checked) services.push('Conservação & Limpeza');
+            if (document.getElementById('srv-pacote').checked) services.push('Pacote Integrado 3 em 1');
+
+            const servicesText = services.length > 0 ? services.join(', ') : 'A definir com a equipe';
+
+            // Formatar data para exibição (DD/MM/AAAA)
+            let formattedDate = 'A definir';
+            if (date) {
+                const parts = date.split('-');
+                if (parts.length === 3) {
+                    formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
+                }
+            }
+
+            // Montar mensagem limpa e profissional para o WhatsApp (sem caracteres ou emojis que quebram)
+            let message = `*SOLICITAÇÃO DE ORÇAMENTO — AGILITY*\n\n`;
+            message += `*Nome / Solicitante:* ${name}\n`;
+            message += `*Contato:* ${phone}\n`;
+            message += `*Serviço(s):* ${servicesText}\n`;
+            message += `*Data Prevista:* ${formattedDate}\n`;
+            message += `*Local / Bairro:* ${location}\n`;
+            if (size && size !== 'Não especificado') {
+                message += `*Porte Estimado:* ${size}\n`;
+            }
+            if (notes) {
+                message += `*Observações:* ${notes}\n`;
+            }
+            message += `\nOlá! Gostaria de receber uma proposta para os detalhes acima. Aguardo o retorno da equipe Agility!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            // WhatsApp para orçamento rápido: +55 (24) 98835-7739
+            const whatsappUrl = `https://wa.me/5524988357739?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Modal Privacidade
+        const openPrivacy = document.getElementById('open-privacy');
+        const closePrivacy = document.getElementById('close-privacy');
+        const closePrivacyBtn = document.getElementById('close-privacy-btn');
+        const privacyModal = document.getElementById('privacy-modal');
+
+        if (openPrivacy && privacyModal) {
+            openPrivacy.addEventListener('click', () => privacyModal.classList.remove('hidden'));
+            closePrivacy.addEventListener('click', () => privacyModal.classList.add('hidden'));
+            closePrivacyBtn.addEventListener('click', () => privacyModal.classList.add('hidden'));
+            privacyModal.addEventListener('click', (e) => {
+                if (e.target === privacyModal) privacyModal.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
