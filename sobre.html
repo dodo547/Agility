@@ -177,15 +177,12 @@
     <section class="py-16 md:py-24 bg-brand-navy-deep relative">
         <div class="container mx-auto px-6 md:px-12">
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-24">
                 
-                <div class="lg:col-span-6">
-                    <div class="relative">
-                        <!-- Decorative Frame -->
-                        <div class="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-brand-blue/40"></div>
-                        <div class="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-brand-blue/40"></div>
-
-                        <div class="bg-brand-navy-card p-8 md:p-12 rounded-2xl border border-slate-800 shadow-2xl relative z-10">
+                <!-- Coluna Esquerda: História & Origem -->
+                <div class="lg:col-span-7 flex flex-col justify-between">
+                    <div class="bg-brand-navy-card p-8 md:p-12 rounded-2xl border border-slate-800 shadow-2xl relative z-10 h-full flex flex-col justify-between">
+                        <div>
                             <span class="text-brand-accent text-xs font-semibold uppercase tracking-[0.25em] mb-3 block">Nossa Origem</span>
                             <h2 class="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
                                 A Amizade que se Tornou Parceria e Propósito
@@ -196,32 +193,36 @@
                             <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-4 font-light">
                                 Decidimos fazer diferente. Começamos com os pés no chão, atuando lado a lado com cada colaborador, recebendo os carros, fiscalizando portarias e alinhando cada detalhe antes do evento começar.
                             </p>
-                            <p class="text-slate-300 text-sm md:text-base leading-relaxed font-light">
+                            <p class="text-slate-300 text-sm md:text-base leading-relaxed font-light mb-6">
                                 Essa postura séria e humana rapidamente gerou recomendações entre cerimonialistas, buffets, donos de casas de eventos e clientes particulares. Hoje, o nome <strong>Agility Soluções em Serviços</strong> é sinônimo de tranquilidade para quem organiza e realiza comemorações inesquecíveis.
                             </p>
+                        </div>
+
+                        <!-- Citação Filosofia -->
+                        <div class="p-5 rounded-xl bg-brand-navy border border-brand-blue/30 mt-4">
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-light italic">
+                                "Não encaramos eventos como simples contratos de horas. Para quem está casando, comemorando um marco ou recebendo parceiros corporativos, aquele dia é único. Nosso papel é garantir que nada fuja do controle."
+                            </p>
+                            <span class="text-brand-accent text-xs font-semibold uppercase tracking-wider block mt-2">— Coordenação Geral Agility</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Foto e Filosofia de Trabalho -->
-                <div class="lg:col-span-6 space-y-6">
-                    <!-- Foto Operação Petrópolis / Duetto's Café -->
-                    <div class="max-w-md mx-auto rounded-xl overflow-hidden border border-brand-blue/30 shadow-2xl bg-brand-navy-card">
-                        <img src="images/operacao-petropolis-duettos.jpg" alt="Operação Agility em Petrópolis RJ no Duetto's Café com totem, boné e ombrelone da marca" class="w-full h-auto block rounded-t-xl">
-                        <div class="p-3 bg-brand-navy-deep/90 border-t border-brand-blue/20 flex items-center justify-between text-xs text-slate-200">
-                            <span class="text-[11px] font-medium text-brand-accent flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> Presença em Petrópolis, RJ
-                            </span>
-                            <span class="text-[10px] text-slate-400">Duetto's Café & Cultura</span>
+                <!-- Coluna Direita: Foto Duetto's Café em Proporção Perfeita -->
+                <div class="lg:col-span-5 flex flex-col justify-center items-center">
+                    <div class="w-full max-w-sm rounded-2xl overflow-hidden border border-brand-blue/30 shadow-2xl bg-brand-navy-card">
+                        <div class="overflow-hidden bg-black/40">
+                            <img src="images/operacao-petropolis-duettos.jpg" alt="Operação Agility em Petrópolis RJ no Duetto's Café com totem, boné e ombrelone da marca" class="w-full h-auto block">
                         </div>
-                    </div>
-
-                    <div class="p-6 md:p-8 rounded-xl bg-gradient-to-r from-brand-blue/10 to-transparent border border-brand-blue/30">
-                        <h3 class="text-white font-serif font-semibold text-lg mb-2">Nossa Filosofia de Trabalho</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-light">
-                            "Não encaramos eventos como simples contratos de horas. Para quem está casando, comemorando um marco ou recebendo parceiros corporativos, aquele dia é único. Nosso papel é garantir que nada fuja do controle."
-                        </p>
-                        <span class="text-brand-accent text-xs font-semibold uppercase tracking-wider block mt-3">— Coordenação Geral Agility</span>
+                        <div class="p-4 bg-brand-navy-deep border-t border-brand-blue/20 flex items-center justify-between text-xs text-slate-200">
+                            <div>
+                                <span class="font-semibold text-white block text-sm">Operação Petrópolis, RJ</span>
+                                <span class="text-slate-400 text-[11px]">Duetto's Café & Cultura</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-brand-blue/20 text-brand-accent border border-brand-blue/30 text-[11px] font-semibold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> Raiz Serrana
+                            </span>
+                        </div>
                     </div>
                 </div>
 
@@ -297,20 +298,22 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                     
                     <div class="lg:col-span-5 space-y-6">
-                        <span class="text-brand-accent text-xs font-semibold uppercase tracking-[0.2em] block mb-2">Processo Rígido</span>
-                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
-                            Quem Veste a Farda da Agility?
-                        </h2>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
-                            Não terceirizamos mão de obra sem critério. Cada membro da nossa equipe passa por uma triagem minuciosa para garantir confiabilidade técnica, elegância e postura exemplar em qualquer celebração.
-                        </p>
+                        <div>
+                            <span class="text-brand-accent text-xs font-semibold uppercase tracking-[0.2em] block mb-2">Processo Rígido</span>
+                            <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
+                                Quem Veste a Farda da Agility?
+                            </h2>
+                            <p class="text-slate-300 text-sm leading-relaxed font-light">
+                                Não terceirizamos mão de obra sem critério. Cada membro da nossa equipe passa por uma triagem minuciosa para garantir confiabilidade técnica, elegância e postura exemplar em qualquer celebração.
+                            </p>
+                        </div>
                         
                         <!-- Foto Real da Equipe com Traje Social Alinhado -->
-                        <div class="rounded-xl overflow-hidden border border-brand-blue/30 shadow-2xl bg-brand-navy-card">
+                        <div class="max-w-sm mx-auto rounded-xl overflow-hidden border border-brand-blue/30 shadow-xl bg-brand-navy-card">
                             <img src="images/equipe-social-alinhada.jpg" alt="Equipe Agility alinhada em traje social formal completo (camisa branca e gravata preta)" class="w-full h-auto block rounded-t-xl">
                             <div class="p-3 bg-brand-navy-deep/90 border-t border-brand-blue/20 flex items-center justify-between text-xs text-slate-200">
                                 <span class="flex items-center gap-1.5 font-medium text-brand-accent">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> Porte e Apresentação
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span> Porte & Apresentação
                                 </span>
                                 <span class="text-[11px] text-slate-400">Equipe Própria</span>
                             </div>
